@@ -1,0 +1,3 @@
+Quickly parse and ban visitors that generate known error indicators related to brute force attempts.
+Set your whitelist and test on non-production systems.
+Usage: ./apache-brute.sh
