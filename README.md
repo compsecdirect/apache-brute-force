@@ -1,7 +1,7 @@
 # Apache Brute
 
-#### Version 0.2
-#### Last Changed June 25, 2017
+#### Version 0.7
+#### Last Changed Sep 30, 2019
 #### Author @jfersec, CompSec Direct 
 #### License: MIT
 #### TL;DR
@@ -18,9 +18,12 @@ Look at apache logs, block visitors generating excessive 301/404 errors, get ema
  7. Parse admin email from whois and send emails to abuse contact, once, with relevant information to support claim.
  8. Keep a list of emails sent before to prevent spamming over similar issues.
  9. Send email to recipient with abuse contact and sterile-evidence of actions for forwarding, evaluation.
+ 10. Previous emails sent when blocked ip matches subnet, abuse POC from before. Shows persistence of action despite blocks. 
+ 11. Use load balanced providers like CloudFlare to block IPs before reaching hosts.  
 
 ##### Todo: 
-Previous emails sent when blocked ip matches subnet, abuse POC from before. Shows persistence of action despite blocks. 
+
+Re-test from scratch.  
 
 #### Explanation
 Defending web-resources is very straight-forward. Often, administrators supplement web-server hardening with a WAF, log-parsers, etc.
@@ -60,7 +63,7 @@ MAILTO=root
 HOME=/root
 # Every 1 minute, poll for update to apache
 # block list, and update firewall blacklist.
-* * * * * root /root/apache-brute-v2.sh &>/dev/null
+* * * * * root /root/apache-brute-v7-lb.sh &>/dev/null
 ```
 
 Every minute is ok, but not 100%. Applications like fail2ban use the tail output in some configs to see what is the last request that came in. This makes this script less-responsive to incoming attacks.
@@ -87,7 +90,7 @@ Sure enough, automated WordPress scanners and other custom developed scripts loo
 
 ##### Usage
 
-``` chmod +x; ./apache-brute-v2.sh```
+``` chmod +x; ./apache-brute-v7-lb.sh```
 
 ##### Output
 ```
