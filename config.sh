@@ -5,12 +5,21 @@
 export PROFILE_NAME="AWS-CLI-PROFILE-NAME"
 
 # IP set settings
-export IP_SET_NAME="IP_SET_NAME"
-export IP_SET_REGION="REGIONAL"
+#IPV4 list
+export IP_SET_NAME=""
+export IP_SET_REGION=""
+export IP_SET_ID=""
+#IPV6 list
+export IP_SET_V6NAME=""
+export IP_SET_V6REGION=""
+export IP_SET_ID_IPV6=""
 
 # Web ACL settings
-export WEB_ACL_NAME="WEB_ACL_NAME"
-export WEB_ACL_REGION="REGIONAL"
+#IPV4
+export WEB_ACL_NAME=""
+#IPV6
+export WEB_ACL_V6NAME=""
+export WEB_ACL_v6REGION=""
 
 # Resouce ARN. Resource you will apply the WEB ACL to. Do not use default. 
 export RESOURCE_ARN="arn:aws:elasticloadbalancing:region:account-id:loadbalancer/......"
