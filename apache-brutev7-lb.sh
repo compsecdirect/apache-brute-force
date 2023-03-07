@@ -29,7 +29,7 @@
 
 # set TimeZone information and date output format"
 TZ=America/New_York date
-TDATE=`date +%Y.%m.%d`
+TDATE=$(date +'%Y-%m-%d %H:%M:%S')
 
 # Set Recipient mail for alerts
 RMAIL=email@addr
@@ -165,12 +165,12 @@ while read ip; do
 	if [[ $( checkIP "$ip" | grep ipv4) ]]
         then
 		ipset add apache-brute $ip
-		./curl-create-cloudflare.sh $ip
+		./deploy-web-acl.sh $ip
         fi
 	if [[ $( checkIP "$ip" | grep ipv6) ]]
         then
 		ipset add apache-brute-v6 $ip
-		./curl-create-cloudflare.sh $ip
+		./deploy-web-acl.sh $ip
         fi
 done < auto-wp-bans.txt
 cat auto-wp-bans.txt
@@ -260,12 +260,12 @@ while read line; do
 				if checkIP "$line" | grep -q 'ipv4'
 				then
 					ipset add apache-brute $line
-					./curl-create-cloudflare.sh $line
+					./deploy-web-acl.sh $line
 				
 				elif checkIP "$line" | grep -q 'ipv6' 
 				then
 					ipset add apache-brute-v6 $line
-					./curl-create-cloudflare.sh $line
+					./deploy-web-acl.sh $line
 				#echo "User continues to persist despite previous attempts $line from other ips $ABUSEPOC" | mail -s "Continued brute-force" $RMAIL
 				else
 					
@@ -277,12 +277,12 @@ while read line; do
 				if checkIP "$line" | grep -q 'ipv4'
 				then
 					ipset add apache-brute $line
-					./curl-create-cloudflare.sh $line
+					./deploy-web-acl.sh $line
 
 				elif checkIP "$line" | grep -q 'ipv6'
 				then
 					ipset add apache-brute-v6 $line
-					./curl-create-cloudflare.sh $line
+					./deploy-web-acl.sh $line
 				
 				fi
 				echo "$ABUSEPOC,$line,$counterSum,$TDATE" >> previous-abuses.txt
