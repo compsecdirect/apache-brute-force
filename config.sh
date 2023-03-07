@@ -17,6 +17,7 @@ export IP_SET_ID_IPV6=""
 # Web ACL settings
 #IPV4
 export WEB_ACL_NAME=""
+export WEB_ACL_REGION=""
 #IPV6
 export WEB_ACL_V6NAME=""
 export WEB_ACL_v6REGION=""
