@@ -1,10 +1,10 @@
 # Apache Brute
 
-#### Version 0.7
+#### Version 0.8
 
-#### Last Changed Sep 30, 2019
+#### Last Changed Mar 7, 2023
 
-#### Author @jfersec, CompSec Direct
+#### Author @jfersec, @djforbes CompSec Direct
 
 #### License: MIT
 
