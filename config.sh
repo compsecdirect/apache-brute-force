@@ -20,7 +20,7 @@ export WEB_ACL_NAME=""
 export WEB_ACL_REGION=""
 #IPV6
 export WEB_ACL_V6NAME=""
-export WEB_ACL_v6REGION=""
+export WEB_ACL_V6REGION=""
 
 # Resouce ARN. Resource you will apply the WEB ACL to. Do not use default. 
 export RESOURCE_ARN="arn:aws:elasticloadbalancing:region:account-id:loadbalancer/......"
